@@ -10,11 +10,12 @@ input.addEventListener("input", () => {
   info.textContent = "Wysłano do innych kart";
 });
 
-worker.port.onmessage = (e) => {
+// alternatywnie worker.port.onmessage = (e) => { ... }
+worker.port.addEventListener("message", (e) => {
   const value = e.data;
 
   if (input.value !== value) {
     input.value = value;
     info.textContent = "Zsynchronizowano z inną kartą";
   }
-};
+});

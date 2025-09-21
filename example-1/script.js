@@ -16,6 +16,7 @@ form.addEventListener("submit", (event) => {
   form.reset();
 });
 
-worker.onmessage = (e) => {
+// alternatywnie można użyć worker.onmessage = (e) => { ... }
+worker.addEventListener("message", (e) => {
   webWorkerResult.textContent = `Web worker: ${e.data}`;
-};
+});

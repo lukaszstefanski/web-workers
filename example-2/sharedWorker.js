@@ -1,6 +1,7 @@
 const ports = [];
 
-onconnect = (e) => {
+// alternatywnie onConnect = (e) => { ... }
+self.addEventListener("connect", (e) => {
   const port = e.ports[0];
   ports.push(port); // dodanie portu kolejnej karty aplikacji
   port.start();
@@ -14,4 +15,4 @@ onconnect = (e) => {
       }
     });
   };
-};
+});
