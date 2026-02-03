@@ -3,19 +3,24 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Formularz</title>
+    <title>Dedicated Worker 1</title>
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
     <div class="container">
       <h1>Formularz</h1>
       <form id="myForm">
-        <label for="numberInput">Podaj liczbę:</label>
-        <input type="number" id="numberInput" name="numberInput" required />
+        <input type="number" id="numberInput" name="numberInput" placeholder="Wpisz liczbę..." required />
         <button type="submit">Wyślij</button>
       </form>
-      <p id="mainScriptResult"></p>
-      <p id="webWorkerResult"></p>
+      <div class="result">
+        <label for="mainScriptResult">Główny skrypt:</label>
+        <p id="mainScriptResult">-</p>
+      </div>
+      <div class="result">
+        <label for="webWorkerResult">Web worker:</label>
+        <p id="webWorkerResult">-</p>
+      </div>
     </div>
     <script src="./script.js"></script>
   </body>

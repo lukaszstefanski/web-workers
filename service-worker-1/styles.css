@@ -1,0 +1,244 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #1e1e1e;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #222;
+}
+
+.container {
+  width: 100%;
+  max-width: 900px;
+  margin: 2rem;
+  background-color: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  padding: 2rem 2.5rem 2.5rem;
+}
+
+h1 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-size: 1.9rem;
+}
+
+.subtitle {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  color: #555;
+  line-height: 1.5;
+}
+
+.status-panel {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.75rem 1.5rem;
+  padding: 1rem 1.25rem;
+  border-radius: 10px;
+  background-color: #f6f8fb;
+  margin-bottom: 2rem;
+}
+
+.status-item .label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #777;
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.badge--unknown {
+  background-color: #e0e7ff;
+  color: #3730a3;
+}
+
+.badge--online {
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+.badge--offline {
+  background-color: #fee2e2;
+  color: #b91c1c;
+}
+
+.badge--ok {
+  background-color: #d1fae5;
+  color: #047857;
+}
+
+.badge--error {
+  background-color: #fee2e2;
+  color: #b91c1c;
+}
+
+.mono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 0.85rem;
+}
+
+.content {
+  margin-bottom: 1.5rem;
+}
+
+.content h2 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.content p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: #444;
+}
+
+.note-form {
+  margin-bottom: 1rem;
+}
+
+.note-form label {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-weight: 600;
+}
+
+.note-form__row {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.note-form input[type="text"] {
+  flex: 1;
+  padding: 0.55rem 0.7rem;
+  font-size: 1rem;
+  border-radius: 7px;
+  border: 1px solid #d1d5db;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.note-form input[type="text"]:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.note-form button {
+  padding: 0.55rem 1.1rem;
+  font-size: 0.95rem;
+  border-radius: 7px;
+  border: none;
+  background-color: #4178d4;
+  color: #ffffff;
+  cursor: pointer;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  transition: background-color 0.15s ease, transform 0.05s ease, box-shadow 0.15s ease;
+}
+
+.note-form button:hover {
+  background-color: #1459d0;
+  box-shadow: 0 6px 14px rgba(37, 99, 235, 0.35);
+}
+
+.note-form button:active {
+  transform: translateY(1px);
+  box-shadow: 0 3px 7px rgba(37, 99, 235, 0.35);
+}
+
+.notes-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-radius: 10px;
+  background-color: #f9fafb;
+  max-height: 220px;
+  overflow-y: auto;
+}
+
+.notes-list__item {
+  padding: 0.6rem 0.8rem;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.notes-list__item:last-child {
+  border-bottom: none;
+}
+
+.notes-list__text {
+  flex: 1;
+  text-align: left;
+  word-break: break-word;
+}
+
+.notes-list__meta {
+  font-size: 0.75rem;
+  color: #6b7280;
+  white-space: nowrap;
+}
+
+.offline-banner {
+  margin-top: 1.25rem;
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  background-color: #fef3c7;
+  color: #92400e;
+  border: 1px solid #f59e0b;
+  font-size: 0.9rem;
+}
+
+.explanation h2 {
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.explanation ol {
+  margin: 0;
+  padding-left: 1.25rem;
+  color: #444;
+}
+
+.explanation li {
+  margin-bottom: 0.4rem;
+}
+
+@media (max-width: 640px) {
+  .container {
+    margin: 1rem;
+    padding: 1.25rem 1.4rem 1.5rem;
+  }
+
+  .note-form__row {
+    flex-direction: column;
+  }
+
+  .note-form button {
+    width: 100%;
+  }
+}
+

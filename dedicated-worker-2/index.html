@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dedicated Worker 2</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Generowanie raportu</h1>
+
+      <div class="controls">
+        <label for="recordsCount">Liczba rekordów w raporcie:</label>
+        <input
+          id="recordsCount"
+          type="number"
+          min="100000"
+          step="100000"
+          value="5000000"
+        />
+      </div>
+
+      <div class="buttons">
+        <button id="btnWithoutWorker">Generuj plik (bez workera)</button>
+        <button id="btnWithWorker">Generuj plik (z workerem)</button>
+      </div>
+
+      <div class="live-ui">
+        <h2>Interakcja z UI</h2>
+        <input id="liveInput" type="text" placeholder="Pisz tutaj w trakcie generowania..." />
+      </div>
+
+      <div class="status-section">
+        <h2>Status</h2>
+        <p id="statusText">Oczekiwanie na akcję...</p>
+
+        <div class="progress-wrapper">
+          <div id="progressBar" class="progress-bar">
+            <div id="progressFill" class="progress-fill"></div>
+          </div>
+          <span id="progressLabel">0%</span>
+        </div>
+      </div>
+
+      <div class="log-section">
+        <pre id="logOutput"></pre>
+      </div>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
+

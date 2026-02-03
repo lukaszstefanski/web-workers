@@ -9,7 +9,7 @@ form.addEventListener("submit", (event) => {
 
   const inputNumber = document.getElementById("numberInput").value;
 
-  mainScriptResult.textContent = `Główny skrypt: ${inputNumber}`;
+  mainScriptResult.textContent = inputNumber;
 
   worker.postMessage(inputNumber);
 
@@ -18,5 +18,5 @@ form.addEventListener("submit", (event) => {
 
 // alternatywnie można użyć worker.onmessage = (e) => { ... }
 worker.addEventListener("message", (e) => {
-  webWorkerResult.textContent = `Web worker: ${e.data}`;
+  webWorkerResult.textContent = e.data;
 });

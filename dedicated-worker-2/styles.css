@@ -1,0 +1,170 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #1e1e1e;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #333;
+  height: 100vh;
+}
+
+.container {
+  width: 95%;
+  max-width: 800px;
+  background-color: #ffffff;
+  padding: 24px 28px 32px;
+  border-radius: 12px;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.2);
+  color: #1e1e1e;
+}
+
+h1 {
+  margin-top: 0;
+  margin-bottom: 8px;
+  font-size: 1.8rem;
+}
+
+h2 {
+  margin-top: 20px;
+  margin-bottom: 8px;
+  font-size: 1.2rem;
+}
+
+p {
+  margin-top: 4px;
+  margin-bottom: 8px;
+}
+
+.controls,
+.buttons,
+.live-ui,
+.status-section,
+.log-section {
+  margin-top: 16px;
+}
+
+.log-section {
+  min-height: 50px;
+}
+
+label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 4px;
+}
+
+input[type="number"],
+input[type="text"] {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 6px;
+  border: 1px solid #d0d7de;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+button {
+  flex: 1;
+  min-width: 180px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  color: #ffffff;
+  background: #4178d4;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.08s ease-out, box-shadow 0.08s ease-out, opacity 0.15s ease-out;
+}
+
+button:nth-child(1) {
+  background: linear-gradient(135deg, #e65151, #f27b7b);
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+button:not(:disabled):hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+}
+
+button:not(:disabled):active {
+  transform: translateY(0);
+  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.18);
+}
+
+.progress-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.progress-bar {
+  flex: 1;
+  height: 14px;
+  background-color: #f1f5f9;
+  border-radius: 999px;
+  overflow: hidden;
+  border: 1px solid #d0d7de;
+}
+
+.progress-fill {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, #4a90e2, #50c9c3);
+  transition: width 0.12s ease-out;
+}
+
+#progressLabel {
+  min-width: 40px;
+  font-variant-numeric: tabular-nums;
+}
+
+.status-section p {
+  margin-bottom: 0;
+}
+
+.log-section {
+  max-height: 220px;
+  overflow: auto;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  background-color: #0f172a;
+  margin-top: 12px;
+}
+
+#logOutput {
+  margin: 0;
+  padding: 10px 12px;
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
+  font-size: 12px;
+  color: #e5e7eb;
+  white-space: pre-wrap;
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 20px 16px 24px;
+  }
+
+  .buttons {
+    flex-direction: column;
+  }
+}
+

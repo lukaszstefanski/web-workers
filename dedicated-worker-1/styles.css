@@ -1,6 +1,6 @@
 body {
   font-family: Arial, sans-serif;
-  background-color: #4a90e2;
+  background-color: #1e1e1e;
   margin: 0;
   padding: 0;
   text-align: center;
@@ -13,10 +13,11 @@ body {
 .container {
   width: 400px;
   margin: 50px auto;
-  background-color: white;
+  background: white;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  color: #1e1e1e;
 }
 
 input, button {
@@ -26,4 +27,30 @@ input, button {
   margin-top: 10px;
   padding: 10px;
   font-size: 16px;
+  border: 1px solid #1e1e1e;
+  color: #1e1e1e;
+}
+
+input {
+  border-radius: 20px;
+}
+
+button {
+  cursor: pointer;
+  color: #ffffff;
+  background: #4178d4;
+  border-radius: 20px;
+  border: none;
+}
+
+button:hover {
+  background: #1459d0;
+}
+
+.result {
+  margin-top: 20px;
+}
+
+p {
+  display: inline;
 }
