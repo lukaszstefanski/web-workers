@@ -81,10 +81,14 @@ function generateFileBlocking(totalRecords) {
   const durationMs = performance.now() - start;
   setProgress(100);
   setStatus(
-    `(bez workera) Zakończono. Pobrano plik "${filename}" w ${durationMs.toFixed(0)} ms.`,
+    `(bez workera) Zakończono. Pobrano plik "${filename}" w ${durationMs.toFixed(
+      0,
+    )} ms.`,
   );
   log(
-    `(bez workera) Gotowe. Czas: ${durationMs.toFixed(0)} ms, rekordy: ${totalRecords}, plik: ${filename}`,
+    `(bez workera) Gotowe. Czas: ${durationMs.toFixed(
+      0,
+    )} ms, rekordy: ${totalRecords}, plik: ${filename}`,
   );
   setButtonsDisabled(false);
 }
@@ -145,10 +149,14 @@ pdfWorker.addEventListener("message", (event) => {
 
     setProgress(100);
     setStatus(
-      `(worker) Zakończono. Pobrano plik "${filename}" w ${durationMs.toFixed(0)} ms.`,
+      `(worker) Zakończono. Pobrano plik "${filename}" w ${durationMs.toFixed(
+        0,
+      )} ms.`,
     );
     log(
-      `(worker) Gotowe. Czas: ${durationMs.toFixed(0)} ms, rekordy: ${totalRecords}, plik: ${filename}`,
+      `(worker) Gotowe. Czas: ${durationMs.toFixed(
+        0,
+      )} ms, rekordy: ${totalRecords}, plik: ${filename}`,
     );
     setButtonsDisabled(false);
     fileChunks = [];

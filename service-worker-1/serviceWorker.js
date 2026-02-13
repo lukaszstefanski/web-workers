@@ -57,9 +57,12 @@ self.addEventListener("fetch", (event) => {
     return;
   }
 
-  // 2. Statyczne zasoby (CSS, JS) – strategia cache-first z fallbackiem do sieci
+  // 2. Strategia cache-first dla plików html, css i js z fallbackiem do internetu
+  // Jeśli plik jest w cache to zwracamy go natychmiast
   event.respondWith(
+    // Service worker przejmuje kontrolę nad tym co zostanie zwrócone
     caches.match(request).then((cachedResponse) => {
+      // Szukamy w cache, zasobu odpowiadającego requestowi
       if (cachedResponse) {
         return cachedResponse;
       }
