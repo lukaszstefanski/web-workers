@@ -121,14 +121,14 @@ btnWithWorker.addEventListener("click", () => {
 pdfWorker.addEventListener("message", (event) => {
   const { type, payload } = event.data || {};
 
-  if (type === "FILE_CHUNK") {
-    fileChunks.push(payload.chunk);
-    return;
-  }
-
   if (type === "STATUS") {
     setStatus(`(worker) ${payload.message}`);
     log(`(worker) ${payload.message}`);
+    return;
+  }
+
+  if (type === "FILE_CHUNK") {
+    fileChunks.push(payload.chunk);
     return;
   }
 

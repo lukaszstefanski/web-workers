@@ -19,7 +19,14 @@ self.addEventListener("message", (event) => {
 
   postMessage({
     type: "STATUS",
-    payload: { message: `Worker: start generowania pliku dla ${totalRecords} rekordów...` },
+    payload: {
+      message: `Worker: start generowania pliku dla ${totalRecords} rekordów...`,
+    },
+  });
+
+  postMessage({
+    type: "FILE_CHUNK",
+    payload: { chunk: CSV_HEADER },
   });
 
   const start = Date.now();
@@ -57,11 +64,6 @@ self.addEventListener("message", (event) => {
       });
     }
   }
-
-  postMessage({
-    type: "FILE_CHUNK",
-    payload: { chunk: CSV_HEADER },
-  });
 
   sendNextChunk();
 });

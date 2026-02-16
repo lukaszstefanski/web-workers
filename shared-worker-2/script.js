@@ -12,11 +12,11 @@ try {
   worker.port.addEventListener("message", (event) => {
     const { type, message, payload } = event.data || {};
 
-    if (type === "status") {
+    if (type === "STATUS") {
       statusEl.textContent = message;
     }
 
-    if (type === "data" && payload) {
+    if (type === "DATA" && payload) {
       const { data, fromCache, timestamp } = payload;
 
       const li = document.createElement("li");
@@ -34,7 +34,8 @@ try {
     }
   });
 
-  statusEl.textContent = "Połączono z SharedWorkerem. Możesz otworzyć kolejne karty.";
+  statusEl.textContent =
+    "Połączono z SharedWorkerem. Możesz otworzyć kolejne karty.";
 } catch (error) {
   statusEl.textContent =
     "Twoja przeglądarka nie wspiera SharedWorker lub wystąpił błąd. Szczegóły w konsoli.";
@@ -43,11 +44,10 @@ try {
 
 fetchBtn.addEventListener("click", () => {
   if (!worker) return;
-  worker.port.postMessage({ type: "getData" });
+  worker.port.postMessage({ type: "GET_DATA" });
 });
 
 clearLogBtn.addEventListener("click", () => {
   resultsList.innerHTML = "";
   statusEl.textContent = "Wyczyszczono log. Możesz ponownie pobrać dane.";
 });
-

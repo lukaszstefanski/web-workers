@@ -21,14 +21,14 @@ self.addEventListener("connect", (event) => {
   port.start();
 
   port.postMessage({
-    type: "status",
+    type: "STATUS",
     message: "Połączono z SharedWorkerem.",
   });
 
   // Jeśli mamy już dane w cache, od razu daj je nowej karcie
   if (cachedData) {
     port.postMessage({
-      type: "data",
+      type: "DATA",
       payload: {
         data: cachedData,
         fromCache: true,
@@ -40,7 +40,7 @@ self.addEventListener("connect", (event) => {
   port.onmessage = (event) => {
     const { type } = event.data || {};
 
-    if (type === "getData") {
+    if (type === "GET_DATA") {
       handleGetData(port);
     }
   };
@@ -50,7 +50,7 @@ function handleGetData(requestingPort) {
   // Jeśli fetch już trwa – nie rozpoczynaj kolejnego
   if (isFetching) {
     requestingPort.postMessage({
-      type: "status",
+      type: "STATUS",
       message:
         "Trwa już pobieranie danych z API przez SharedWorkera – po zakończeniu wszyscy dostaną wynik.",
     });
@@ -62,9 +62,11 @@ function handleGetData(requestingPort) {
 
   isFetching = true;
   broadcast({
-    type: "status",
+    type: "STATUS",
     message:
-      "Pobieram dane z API (todo #" + todoId + ", współdzielone między wszystkimi kartami)…",
+      "Pobieram dane z API (todo #" +
+      todoId +
+      ", współdzielone między wszystkimi kartami)…",
   });
 
   // Proste, publiczne API tylko do demonstracji
@@ -76,14 +78,14 @@ function handleGetData(requestingPort) {
 
       // Informacja dla wszystkich kart, że dane są już w cache
       broadcast({
-        type: "status",
+        type: "STATUS",
         message: "Dane z API zostały pobrane i zapisane w cache SharedWorkera.",
       });
 
       // Odpowiedź dla karty, która zainicjowała żądanie – oznaczamy jako „z sieci”
       try {
         requestingPort.postMessage({
-          type: "data",
+          type: "DATA",
           payload: {
             data: cachedData,
             fromCache: false,
@@ -100,7 +102,7 @@ function handleGetData(requestingPort) {
         .forEach((port) => {
           try {
             port.postMessage({
-              type: "data",
+              type: "DATA",
               payload: {
                 data: cachedData,
                 fromCache: true,
@@ -115,7 +117,7 @@ function handleGetData(requestingPort) {
     .catch((error) => {
       console.error("Błąd podczas pobierania danych w SharedWorkerze:", error);
       broadcast({
-        type: "status",
+        type: "STATUS",
         message:
           "Wystąpił błąd podczas pobierania danych z API w SharedWorkerze. Szczegóły w konsoli.",
       });
